@@ -1,0 +1,9 @@
+		MOV		r1, #256
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1
+		LSR		r1, r1, #1

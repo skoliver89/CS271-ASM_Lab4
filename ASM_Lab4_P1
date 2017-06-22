@@ -1,0 +1,38 @@
+		;Using	Logical Shifts
+		;In		a logical shift, bits that "fall off" are discarded
+		;0's		are always used to fill blanks
+		MOV		r1, #0x12	;r1 = 0000 ... 0000 0001 0010
+		;shift	4 BITS or 1 hex digit to the left
+		LSL		r2, r1, #4 ;r2 = 0000 ... 0001 0010 0000
+		;
+		MOV		r3, #100 ;r3 = 0000 ... 0000 0001 0010
+		ASR		r4, r3, #2 ;r4 = 0000 ... 0000 0000 0100
+		;
+		;Shift	r3 by number of bits in r4 (4), result in r5
+		LSL		r5, r3, r4 ;using register addressing instead of immediate addressing
+		;
+		;Right	rotate examples
+		MOV		r1, #0x12 ;r1 = 0000 0000 ... 0000 0001 0010
+		ROR		r2, r1, #1 ;r2 = 0000 0000 ... 0000 0000 1001
+		ROR		r3, r2, #4 ;r3 = 1001 .... 0000 0000 0000
+		;
+		;No		Rotate Left, instead rotate left x bits with ROR (32-x)
+		MOV		r5, #0x12 ;r5 = 0x12
+		;Rotate	r5 left 12 bits by ROR (32-12) = 20 bits; answer in r6
+		ROR		r6, r5, #20 ;r6 = 0x12000
+		;
+		;TEST	comparision opcodes and observe the CSPR Status bits
+		MOV		r7, #3
+		MOV		r8, #3
+		MOV		r9, #-3
+		MVN		r10, #3 ;Complimented bit value of 3
+		;CMP		and CMN examples
+		CMP		r7, r8 ;SUBTRACT same, so Zero flag set
+		CMP		r7, r9 ;SUBTRACT Not the same so no flags
+		CMN		r7, r8 ;ADD same, so no flag set
+		CMN		r7, r9 ;ADD Oposite sige, so Zero flag set
+		;TST		and TEQ examples, Pay attention to the N and Z flags
+		TST		r7, r8 ;BITWISE ANDS
+		TST		r7, r10 ;BITWISE ANDS
+		TEQ		r7, r8 ;BITWISE EORS
+		TEQ		r7, r10 ;BITWISE EORS

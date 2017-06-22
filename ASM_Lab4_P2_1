@@ -1,0 +1,9 @@
+		MOV		r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
+		LSL		r1, r1, #1
